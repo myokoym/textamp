@@ -23,8 +23,8 @@
           - 1.upto(10) do |i|
             %option{:value => i}= i
       %p
-        %input{:type => "textarea", :name => "text", :size => 40}
+        %textarea{:name => "text", :cols => 40, :rows => 1}
       %p
         %input{:type => "submit"}
     %p
-      %input{:type => "textarea", :value => "#{@text}", :size => 40}
+      %textarea{:cols => 40, :rows => 1}= @text

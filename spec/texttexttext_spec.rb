@@ -22,7 +22,7 @@ describe "TextTextText" do
       post '/clone', {:text => "text",
                       :times => "3"}
       last_response.ok? == true
-      last_response.body.to_s.should =~ /value='texttexttext'/
+      last_response.body.to_s.should =~ />texttexttext<\/textarea>/
     end
   end
 end
