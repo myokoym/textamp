@@ -1,4 +1,4 @@
-# テキスト増幅器 [![Build Status](https://secure.travis-ci.org/myokoym/texttexttext.png?branch=master)](http://travis-ci.org/myokoym/texttexttext)
+# TextTextText [![Build Status](https://secure.travis-ci.org/myokoym/texttexttext.png?branch=master)](http://travis-ci.org/myokoym/texttexttext)
 
 Text cloning tool.
 
