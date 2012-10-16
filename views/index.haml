@@ -1,0 +1,30 @@
+-# encoding: utf-8
+!!! XML
+!!!
+%html
+  %head
+    %meta{'http-equiv' => 'content-type', :content => 'text/html; charset=utf-8'}
+    %meta{'http-equiv' => 'content-style-type', :content => 'text/css'}
+    %meta{'http-equiv' => 'content-script-type', :content => 'text/javascript'}
+    %title テキスト増幅器
+  %body
+    %h1 テキスト増幅器
+
+    Powered by
+    %a{:href => "http://www.ruby-lang.org/ja/"} Ruby
+    ,
+    %a{:href => "http://www.sinatrarb.com/intro-jp.html"} Sinatra
+    ,
+    %a{:href => "http://haml-lang.com/"} Haml
+
+    %form{:action => url("/clone", false, true), :method => "post"}
+      %p
+        %select{:name => "times"}
+          - 1.upto(10) do |i|
+            %option{:value => i}= i
+      %p
+        %input{:type => "textarea", :name => "text", :size => 40}
+      %p
+        %input{:type => "submit"}
+    %p
+      %input{:type => "textarea", :value => "#{@text}", :size => 40}
