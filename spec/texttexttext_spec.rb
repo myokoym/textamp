@@ -20,9 +20,18 @@ describe "TextTextText" do
   context "clone" do
     it "text to 3 times" do
       post '/clone', {:text => "text",
-                      :times => "3"}
+                      :times => "3",
+                      :linefeed => "0"}
       last_response.ok? == true
       last_response.body.to_s.should =~ />texttexttext<\/textarea>/
+    end
+
+    it "add linefeed" do
+      post '/clone', {:text => "text",
+                      :times => "3",
+                      :linefeed => "1"}
+      last_response.ok? == true
+      last_response.body.to_s.should =~ />text&#x000A;text&#x000A;text<\/textarea>/
     end
   end
 end

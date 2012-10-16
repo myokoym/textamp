@@ -18,5 +18,7 @@ end
 
 private
 def clone(params)
-  params[:text] * params[:times].to_i
+  text = params[:text]
+  text << "\n" if params[:linefeed] == "1"
+  text * params[:times].to_i
 end

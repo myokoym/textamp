@@ -22,9 +22,10 @@
         %select{:name => "times"}
           - 1.upto(10) do |i|
             %option{:value => i}= i
+        %input{:type => "checkbox", :name => "linefeed", :value => "1"} 改行
       %p
-        %textarea{:name => "text", :cols => 40, :rows => 1}
+        %textarea{:name => "text", :cols => 40, :rows => 5}
       %p
         %input{:type => "submit"}
     %p
-      %textarea{:cols => 40, :rows => 1}= @text
+      %textarea{:cols => 40, :rows => 5}= @text
