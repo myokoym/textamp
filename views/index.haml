@@ -24,6 +24,20 @@
             %option{:value => i}= i
         %input{:type => "checkbox", :name => "linefeed", :value => "1"} 改行
       %p
+        %input{:type => "checkbox", :name => "increment", :value => "1"} 加算
+        　記号
+        %select{:name => "increment_sign"}
+          - %w(# $ % & @ + * ? _ -).each do |sign|
+            %option{:value => sign}= sign
+        　開始値
+        %select{:name => "increment_start"}
+          - 0.upto(1000).each do |i|
+            %option{:value => i}= i
+        　桁数
+        %select{:name => "increment_digit"}
+          - 1.upto(10).each do |i|
+            %option{:value => i}= i
+      %p
         %textarea{:name => "text", :cols => 40, :rows => 5}
       %p
         %input{:type => "submit"}
