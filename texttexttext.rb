@@ -24,7 +24,7 @@ def clone(params)
     format = "%0#{params[:increment_digit]}d"
     sign = params[:increment_sign]
     sign_count = text.count(sign)
-    text.gsub!(/#{sign}/, format)
+    text.gsub!("#{sign}", format)
     start = params[:increment_start].to_i
     params[:times].to_i.times do |i|
       result << text % Array.new(sign_count) { i + start }

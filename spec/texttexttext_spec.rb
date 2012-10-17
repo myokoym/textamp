@@ -35,11 +35,11 @@ describe "TextTextText" do
     end
 
     it "increment option" do
-      post '/clone', {:text => "text_#;",
+      post '/clone', {:text => "text_?;",
                       :times => "3",
                       :linefeed => "0",
                       :increment => "1",
-                      :increment_sign => "#",
+                      :increment_sign => "?",
                       :increment_start => "1",
                       :increment_digit => "3"}
       last_response.ok? == true
