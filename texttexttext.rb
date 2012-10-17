@@ -32,7 +32,7 @@ def clone(params)
     end
     result
   else
-  text << "\n" if params[:linefeed] == "1"
-  text * params[:times].to_i
+    text << "\n" if params[:linefeed] == "1"
+    text * params[:times].to_i
   end
 end
