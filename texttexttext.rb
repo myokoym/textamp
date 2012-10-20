@@ -2,6 +2,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'uri'
 
 get "/" do
   haml :index
@@ -9,11 +10,13 @@ end
 
 post "/clone" do
   @text = clone(params)
+  @http_get_url = http_get_url
   haml :index
 end
 
 get "/clone" do
   @text = clone(params)
+  @http_get_url = http_get_url
   haml :index
 end
 
@@ -36,4 +39,8 @@ def clone(params)
     text << "\n" if params[:linefeed] == "1"
     text * params[:times].to_i
   end
+end
+
+def http_get_url
+  "#{url}?#{URI.encode_www_form(params)}"
 end

@@ -45,6 +45,24 @@ describe "TextTextText" do
       last_response.ok? == true
       last_response.body.to_s.should =~ />text_001;text_002;text_003;<\/textarea>/
     end
+
+    it "print HTTP GET URL" do
+      post '/clone', {:text => "text",
+                      :times => "3",
+                      :linefeed => "0",
+                      :increment => "1",
+                      :increment_sign => "?",
+                      :increment_start => "1",
+                      :increment_digit => "3"}
+      last_response.ok? == true
+      last_response.body.to_s.should =~ /text=text/
+      last_response.body.to_s.should =~ /times=3/
+      last_response.body.to_s.should =~ /linefeed=0/
+      last_response.body.to_s.should =~ /increment=1/
+      last_response.body.to_s.should =~ /increment_sign=%3F/
+      last_response.body.to_s.should =~ /increment_start=1/
+      last_response.body.to_s.should =~ /increment_digit=3/
+    end
   end
 
   context "clone (HTTP GET)" do
