@@ -13,7 +13,8 @@ post "/clone" do
 end
 
 get "/clone" do
-  clone(params)
+  @text = clone(params)
+  haml :index
 end
 
 private

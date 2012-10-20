@@ -17,7 +17,7 @@ describe "TextTextText" do
     end
   end
 
-  context "clone" do
+  context "clone (HTTP POST)" do
     it "text to 3 times" do
       post '/clone', {:text => "text",
                       :times => "3",
@@ -46,5 +46,14 @@ describe "TextTextText" do
       last_response.body.to_s.should =~ />text_001;text_002;text_003;<\/textarea>/
     end
   end
-end
 
+  context "clone (HTTP GET)" do
+    it "text to 3 times" do
+      get '/clone', {:text => "text",
+                      :times => "3",
+                      :linefeed => "0"}
+      last_response.ok? == true
+      last_response.body.to_s.should =~ />texttexttext<\/textarea>/
+    end
+  end
+end
