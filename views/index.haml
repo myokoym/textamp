@@ -34,7 +34,7 @@
         ='　'
         開始値
         %select{:name => "increment_start"}
-          - 0.upto(1000).each do |i|
+          - [0, 1].each do |i|
             %option{:value => i}= i
         ='　'
         桁数
