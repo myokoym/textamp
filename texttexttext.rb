@@ -23,21 +23,29 @@ end
 private
 def clone(params)
   text = params[:text]
+  results = Array.new(params[:times].to_i) { text }
+
   if params[:increment] == "1"
-    result = ""
-    format = "%0#{params[:increment_digit]}d"
-    sign = params[:increment_sign]
-    sign_count = text.count(sign)
-    text = text.gsub("#{sign}", format)
-    start = params[:increment_start].to_i
-    params[:times].to_i.times do |i|
-      result << text % Array.new(sign_count) { i + start }
-      result << "\n" if params[:linefeed] == "1"
-    end
-    result
+    results = increment(results)
+  end
+
+  result = ""
+  if params[:linefeed] == "1"
+    result = results.join("\n")
   else
-    text << "\n" if params[:linefeed] == "1"
-    text * params[:times].to_i
+    result = results.join
+  end
+
+  result
+end
+
+def increment(results)
+  format = "%0#{params[:increment_digit]}d"
+  sign = params[:increment_sign]
+  start = params[:increment_start].to_i
+  results.map.with_index do |t, i|
+    sign_count = t.count(sign)
+    t.gsub("#{sign}", format) % Array.new(sign_count) { i + start }
   end
 end
 
