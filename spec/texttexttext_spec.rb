@@ -46,6 +46,17 @@ describe "TextTextText" do
       last_response.body.to_s.should =~ />text_001;text_002;text_003;<\/textarea>/
     end
 
+    it "template option" do
+      post '/clone', {:text => "text_@@@;",
+                      :times => "3",
+                      :linefeed => "0",
+                      :template => "1",
+                      :template_sign => "@@@",
+                      :template_text => "aaa\nbbb\nccc"}
+      last_response.ok? == true
+      last_response.body.to_s.should =~ />text_aaa;text_bbb;text_ccc;<\/textarea>/
+    end
+
     it "print HTTP GET URL" do
       post '/clone', {:text => "text",
                       :times => "3",

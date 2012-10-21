@@ -42,6 +42,10 @@
           - 1.upto(10).each do |i|
             %option{:value => i}= i
       %p
+        %input{:type => "checkbox", :name => "template", :value => "1"} テンプレート
+        %input{:type => "text", :name => "template_sign", :size => 5}
+        %textarea{:name => "template_text", :cols => 20, :rows => 3}
+      %p
         %textarea{:name => "text", :cols => 40, :rows => 5}
       %p
         %input{:type => "submit"}

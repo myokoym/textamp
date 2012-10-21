@@ -29,6 +29,10 @@ def clone(params)
     results = increment(results)
   end
 
+  if params[:template] == "1"
+    results = template(results)
+  end
+
   result = ""
   if params[:linefeed] == "1"
     result = results.join("\n")
@@ -46,6 +50,15 @@ def increment(results)
   results.map.with_index do |t, i|
     sign_count = t.count(sign)
     t.gsub("#{sign}", format) % Array.new(sign_count) { i + start }
+  end
+end
+
+def template(results)
+  sign = params[:template_sign]
+  results.map.with_index do |t, i|
+    template_texts = params[:template_text].split(/\n/)
+    part = template_texts[i % template_texts.count].chomp
+    t.gsub("#{sign}", part)
   end
 end
 
