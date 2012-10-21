@@ -21,7 +21,7 @@
       %p
         複製数
         %select{:name => "times"}
-          - 1.upto(1000) do |i|
+          - 1.upto(100) do |i|
             %option{:value => i}= i
         %input{:type => "checkbox", :name => "linefeed", :value => "1"} 改行
       %p
