@@ -19,30 +19,30 @@
 
     %form{:action => url("/clone", false, true), :method => "post"}
       %p
-        複製数
+        volume
         %select{:name => "times"}
           - 1.upto(100) do |i|
             %option{:value => i}= i
-        %input{:type => "checkbox", :name => "linefeed", :value => "1"} 改行
+        %input{:type => "checkbox", :name => "linefeed", :value => "1"} line feed
       %p
-        %input{:type => "checkbox", :name => "increment", :value => "1"} 加算
+        %input{:type => "checkbox", :name => "increment", :value => "1"} increment
         ='　'
-        記号
+        sign
         %select{:name => "increment_sign"}
           - %w(# $ % & @ + * ? _ -).each do |sign|
             %option{:value => sign}= sign
         ='　'
-        開始値
+        start
         %select{:name => "increment_start"}
           - [0, 1].each do |i|
             %option{:value => i}= i
         ='　'
-        桁数
+        digit
         %select{:name => "increment_digit"}
           - 1.upto(10).each do |i|
             %option{:value => i}= i
       %p
-        %input{:type => "checkbox", :name => "template", :value => "1"} テンプレート
+        %input{:type => "checkbox", :name => "template", :value => "1"} template
         %input{:type => "text", :name => "template_sign", :size => 5}
         %textarea{:name => "template_text", :cols => 20, :rows => 3}
       %p
