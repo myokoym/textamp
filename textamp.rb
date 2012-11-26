@@ -8,20 +8,20 @@ get "/" do
   haml :index
 end
 
-post "/clone" do
-  @text = clone(params)
+post "/amplify" do
+  @text = amplify(params)
   @http_get_url = http_get_url
   haml :index
 end
 
-get "/clone" do
-  @text = clone(params)
+get "/amplify" do
+  @text = amplify(params)
   @http_get_url = http_get_url
   haml :index
 end
 
 private
-def clone(params)
+def amplify(params)
   text = params[:text]
   results = Array.new(params[:times].to_i) { text }
 

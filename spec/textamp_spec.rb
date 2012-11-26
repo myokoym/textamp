@@ -17,9 +17,9 @@ describe "Textamp" do
     end
   end
 
-  context "clone (HTTP POST)" do
+  context "amplify (HTTP POST)" do
     it "text to 3 times" do
-      post '/clone', {:text => "text",
+      post '/amplify', {:text => "text",
                       :times => "3",
                       :linefeed => "0"}
       last_response.ok? == true
@@ -27,7 +27,7 @@ describe "Textamp" do
     end
 
     it "add linefeed" do
-      post '/clone', {:text => "text",
+      post '/amplify', {:text => "text",
                       :times => "3",
                       :linefeed => "1"}
       last_response.ok? == true
@@ -35,7 +35,7 @@ describe "Textamp" do
     end
 
     it "increment option" do
-      post '/clone', {:text => "text_?;",
+      post '/amplify', {:text => "text_?;",
                       :times => "3",
                       :linefeed => "0",
                       :increment => "1",
@@ -47,7 +47,7 @@ describe "Textamp" do
     end
 
     it "template option" do
-      post '/clone', {:text => "text_@@@;",
+      post '/amplify', {:text => "text_@@@;",
                       :times => "3",
                       :linefeed => "0",
                       :template => "1",
@@ -58,7 +58,7 @@ describe "Textamp" do
     end
 
     it "print HTTP GET URL" do
-      post '/clone', {:text => "text",
+      post '/amplify', {:text => "text",
                       :times => "3",
                       :linefeed => "0",
                       :increment => "1",
@@ -76,9 +76,9 @@ describe "Textamp" do
     end
   end
 
-  context "clone (HTTP GET)" do
+  context "amplify (HTTP GET)" do
     it "text to 3 times" do
-      get '/clone', {:text => "text",
+      get '/amplify', {:text => "text",
                       :times => "3",
                       :linefeed => "0"}
       last_response.ok? == true
