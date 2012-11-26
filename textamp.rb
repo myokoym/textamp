@@ -23,7 +23,7 @@ end
 private
 def amplify(params)
   text = params[:text]
-  results = Array.new(params[:times].to_i) { text }
+  results = Array.new(params[:volume].to_i) { text }
 
   if params[:increment] == "1"
     results = increment(results)

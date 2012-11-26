@@ -18,9 +18,9 @@ describe "Textamp" do
   end
 
   context "amplify (HTTP POST)" do
-    it "text to 3 times" do
+    it "text to 3 volume" do
       post '/amplify', {:text => "text",
-                      :times => "3",
+                      :volume => "3",
                       :linefeed => "0"}
       last_response.ok? == true
       last_response.body.to_s.should =~ />texttexttext<\/textarea>/
@@ -28,7 +28,7 @@ describe "Textamp" do
 
     it "add linefeed" do
       post '/amplify', {:text => "text",
-                      :times => "3",
+                      :volume => "3",
                       :linefeed => "1"}
       last_response.ok? == true
       last_response.body.to_s.should =~ />text&#x000A;text&#x000A;text<\/textarea>/
@@ -36,7 +36,7 @@ describe "Textamp" do
 
     it "increment option" do
       post '/amplify', {:text => "text_?;",
-                      :times => "3",
+                      :volume => "3",
                       :linefeed => "0",
                       :increment => "1",
                       :increment_sign => "?",
@@ -48,7 +48,7 @@ describe "Textamp" do
 
     it "template option" do
       post '/amplify', {:text => "text_@@@;",
-                      :times => "3",
+                      :volume => "3",
                       :linefeed => "0",
                       :template => "1",
                       :template_sign => "@@@",
@@ -59,7 +59,7 @@ describe "Textamp" do
 
     it "print HTTP GET URL" do
       post '/amplify', {:text => "text",
-                      :times => "3",
+                      :volume => "3",
                       :linefeed => "0",
                       :increment => "1",
                       :increment_sign => "?",
@@ -67,7 +67,7 @@ describe "Textamp" do
                       :increment_digit => "3"}
       last_response.ok? == true
       last_response.body.to_s.should =~ /text=text/
-      last_response.body.to_s.should =~ /times=3/
+      last_response.body.to_s.should =~ /volume=3/
       last_response.body.to_s.should =~ /linefeed=0/
       last_response.body.to_s.should =~ /increment=1/
       last_response.body.to_s.should =~ /increment_sign=%3F/
@@ -77,9 +77,9 @@ describe "Textamp" do
   end
 
   context "amplify (HTTP GET)" do
-    it "text to 3 times" do
+    it "text to 3 volume" do
       get '/amplify', {:text => "text",
-                      :times => "3",
+                      :volume => "3",
                       :linefeed => "0"}
       last_response.ok? == true
       last_response.body.to_s.should =~ />texttexttext<\/textarea>/
