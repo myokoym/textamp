@@ -1,3 +1,3 @@
-require File.expand_path(File.dirname(__FILE__)) + '/texttexttext'
+require File.expand_path(File.dirname(__FILE__)) + '/textamp'
 
 run Sinatra::Application

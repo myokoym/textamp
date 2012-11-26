@@ -9,7 +9,7 @@ def app
   MY_APP
 end
 
-describe "TextTextText" do
+describe "Textamp" do
   context "root" do
     it "last response ok?" do
       get '/'

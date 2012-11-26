@@ -1,10 +1,10 @@
-# TextTextText [![Build Status](https://secure.travis-ci.org/myokoym/texttexttext.png?branch=master)](http://travis-ci.org/myokoym/texttexttext)
+# Textamp [![Build Status](https://secure.travis-ci.org/myokoym/textamp.png?branch=master)](http://travis-ci.org/myokoym/textamp)
 
-Text cloning tool.
+Text amplifier - テキスト増幅器
 
 ## Usage
 
-http://myokoym.net/texttexttext/
+http://myokoym.net/textamp/
 
 ## Development
 
