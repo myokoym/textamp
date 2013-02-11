@@ -49,7 +49,8 @@ def increment(results)
   start = params[:increment_start].to_i
   results.map.with_index do |t, i|
     sign_count = t.count(sign)
-    t.gsub("#{sign}", format) % Array.new(sign_count) { i + start }
+    part = format % (i + start)
+    t.gsub("#{sign}", part)
   end
 end
 

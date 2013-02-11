@@ -46,6 +46,18 @@ describe "Textamp" do
       last_response.body.to_s.should =~ />text_001;text_002;text_003;<\/textarea>/
     end
 
+    it "increment option and '%' into textarea" do
+      post '/amplify', {:text => "?%;",
+                      :volume => "3",
+                      :linefeed => "0",
+                      :increment => "1",
+                      :increment_sign => "?",
+                      :increment_start => "100",
+                      :increment_digit => "3"}
+      last_response.ok? == true
+      last_response.body.to_s.should =~ />100%;101%;102%;<\/textarea>/
+    end
+
     it "template option" do
       post '/amplify', {:text => "text_@@@;",
                       :volume => "3",
