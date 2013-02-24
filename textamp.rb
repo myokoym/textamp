@@ -8,17 +8,13 @@ get "/" do
   haml :index
 end
 
-post "/amplify" do
+amplify = lambda do
   @text = amplify(params)
   @http_get_url = http_get_url
   haml :index
 end
-
-get "/amplify" do
-  @text = amplify(params)
-  @http_get_url = http_get_url
-  haml :index
-end
+get "/amplify", &amplify
+post "/amplify", &amplify
 
 private
 def amplify(params)
