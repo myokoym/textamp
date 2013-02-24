@@ -11,6 +11,7 @@ end
 amplify = lambda do
   @text = amplify(params)
   @http_get_url = http_get_url
+  @params = params
   haml :index
 end
 get "/amplify", &amplify

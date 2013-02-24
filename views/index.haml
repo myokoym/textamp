@@ -27,36 +27,50 @@
         volume
         %select{:name => "volume"}
           - 1.upto(100) do |i|
-            %option{:value => i}= i
+            - hash = {:value => i}
+            - hash[:selected] = "selected" if i == @params[:volume].to_i
+            %option{hash}= i
         ='　'
-        %input{:type => "checkbox", :name => "linefeed", :value => "1"} line feed
+        - hash = {:type => "checkbox", :name => "linefeed", :value => "1"}
+        - hash[:checked] = "checked" if "1" == @params[:linefeed]
+        %input{hash} line feed
       %p
-        %input{:type => "checkbox", :name => "increment", :value => "1"} increment
+        - hash = {:type => "checkbox", :name => "increment", :value => "1"}
+        - hash[:checked] = "checked" if "1" == @params[:increment]
+        %input{hash} increment
         ='　'
         sign
         %select{:name => "increment_sign"}
           - %w(# $ % & @ + * ? _ -).each do |sign|
-            %option{:value => sign}= sign
+            - hash = {:value => sign}
+            - hash[:selected] = "selected" if sign == @params[:increment_sign]
+            %option{hash}= sign
         ='　'
         start
         %select{:name => "increment_start"}
           - [0, 1].each do |i|
-            %option{:value => i}= i
+            - hash = {:value => i}
+            - hash[:selected] = "selected" if i == @params[:increment_start].to_i
+            %option{hash}= i
         ='　'
         digit
         %select{:name => "increment_digit"}
           - 1.upto(10).each do |i|
-            %option{:value => i}= i
+            - hash = {:value => i}
+            - hash[:selected] = "selected" if i == @params[:increment_digit].to_i
+            %option{hash}= i
       %p
-        %input{:type => "checkbox", :name => "template", :value => "1"} template
+        - hash = {:type => "checkbox", :name => "template", :value => "1"}
+        - hash[:checked] = "checked" if "1" == @params[:template]
+        %input{hash} template
         ='　'
         sign
-        %input{:type => "text", :name => "template_sign", :size => 5}
+        %input{:type => "text", :name => "template_sign", :size => 5, :value => @params[:template_sign]}
         ='　'
         parts
-        %textarea{:name => "template_text", :cols => 20, :rows => 1}
+        %textarea{:name => "template_text", :cols => 20, :rows => 1}= @params[:template_text]
       %p
-        %textarea{:name => "text", :cols => 40, :rows => 5}
+        %textarea{:name => "text", :cols => 40, :rows => 5}= @params[:text]
       %p
         %input{:type => "submit"}
     %p

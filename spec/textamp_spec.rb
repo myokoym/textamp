@@ -86,6 +86,30 @@ describe "Textamp" do
       last_response.body.to_s.should =~ /increment_start=1/
       last_response.body.to_s.should =~ /increment_digit=3/
     end
+
+    it "save params" do
+      post '/amplify', {:volume          => "3",
+                        :linefeed        => "1",
+                        :increment       => "1",
+                        :increment_sign  => "$",
+                        :increment_start => "1",
+                        :increment_digit => "5",
+                        :template        => "1",
+                        :template_sign   => "@@@",
+                        :template_text   => "aaa\nbbb\nccc",
+                        :text            => "text-@@@_$"}
+      last_response.ok? == true
+      last_response.body.to_s.should =~ /selected.*>3</
+      last_response.body.to_s.should =~ /checked.*>line feed</
+      last_response.body.to_s.should =~ /checked.*>increment</
+      last_response.body.to_s.should =~ /selected.*>\$</
+      last_response.body.to_s.should =~ /selected.*>1</
+      last_response.body.to_s.should =~ /selected.*>5</
+      last_response.body.to_s.should =~ /checked.*>template</
+      last_response.body.to_s.should =~ /value=['"]@@@['"]/
+      last_response.body.to_s.should =~ />text-aaa_00001&#x000A;text-bbb_00002&#x000A;text-ccc_00003<\/textarea>/
+      last_response.body.to_s.should =~ />text-@@@_\$<\/textarea>/
+    end
   end
 
   context "amplify (HTTP GET)" do
