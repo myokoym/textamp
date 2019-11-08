@@ -85,7 +85,7 @@ class Textamp < Ovto::App
     end
 
     def set_template(value: value)
-      return {template: value.to_i > 0}
+      return {template: value}
     end
 
     def set_template_sign(value: value)
