@@ -36,7 +36,7 @@ class Textamp < Ovto::App
           hash[:checked] = "checked" if state.increment
           o "input", hash
           o "span", "increment"
-          o "span", "　"
+          o "span", " "
           o "span", "sign"
           o "select", {
             name: "increment_sign",
@@ -48,7 +48,7 @@ class Textamp < Ovto::App
               o "option", hash, sign
             end
           end
-          o "span", "　"
+          o "span", " "
           o "span", "start"
           o "select", {
             name: "increment_start",
@@ -60,7 +60,7 @@ class Textamp < Ovto::App
               o "option", hash, i
             end
           end
-          o "span", "　"
+          o "span", " "
           o "span", "digit"
           o "select", {
             name: "increment_digit",
