@@ -28,15 +28,16 @@ class Textamp < Ovto::App
         end
 
         o "p" do
-          hash = {
-            type: "checkbox",
-            name: "increment",
-            onchange: ->(e){ actions.set_increment(value: e.target.checked) },
-          }
-          hash[:checked] = "checked" if state.increment
-          o "input", hash
-          o "span", "increment"
-          o "span", "　"
+          # NOTE: OFFにする場面がなさそう
+          #hash = {
+          #  type: "checkbox",
+          #  name: "increment",
+          #  onchange: ->(e){ actions.set_increment(value: e.target.checked) },
+          #}
+          #hash[:checked] = "checked" if state.increment
+          #o "input", hash
+          #o "span", "increment"
+          #o "span", "　"
           o "span", "sign"
           o "select", {
             name: "increment_sign",
