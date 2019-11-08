@@ -113,7 +113,7 @@ class Textamp < Ovto::App
         end
 
         o "p" do
-          o "textarea", {:cols => 40, :rows => 10}, state.result
+          o "textarea", {cols: 40, rows: 20}, state.result
         end
       end
     end
