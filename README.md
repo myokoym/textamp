@@ -1,4 +1,6 @@
-# Ovto static example
+# Textamp
+
+A text amplifier on Web.
 
 ## How to run
 
