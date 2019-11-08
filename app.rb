@@ -7,7 +7,7 @@ class Textamp < Ovto::App
     item :text, default: "aaa#"
     item :volume, default: 10
     item :increment, default: true
-    item :increment_digit, default: 3
+    item :increment_digit, default: 2
     item :increment_sign, default: "#"
     item :increment_start, default: 0
     item :template, default: false
