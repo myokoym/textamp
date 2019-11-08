@@ -74,33 +74,34 @@ class Textamp < Ovto::App
           end
         end
 
-        o "p" do
-          hash = {
-            type: "checkbox",
-            name: "template",
-            onchange: ->(e){ actions.set_template(value: e.target.checked) },
-          }
-          hash[:checked] = "checked" if state.template
-          o "input", hash
-          o "span", "template"
-          o "span", "　"
-          o "span", "sign"
-          o "input", {
-            type: "text",
-            name: "template_sign",
-            size: 5,
-            value: state.template_sign,
-            oninput: ->(e){ actions.set_template_sign(value: e.target.value) },
-          }
-          o "span", "　"
-          o "span", "parts"
-          o "textarea", {
-            name: "template_text",
-            cols: 20,
-            rows: 1,
-            oninput: ->(e){ actions.set_template_text(value: e.target.value) },
-          }, state.template_text
-        end
+        # NOTE: template機能はUIが改善するまで非表示
+        #o "p" do
+        #  hash = {
+        #    type: "checkbox",
+        #    name: "template",
+        #    onchange: ->(e){ actions.set_template(value: e.target.checked) },
+        #  }
+        #  hash[:checked] = "checked" if state.template
+        #  o "input", hash
+        #  o "span", "template (experimental)"
+        #  o "span", "　"
+        #  o "span", "sign"
+        #  o "input", {
+        #    type: "text",
+        #    name: "template_sign",
+        #    size: 5,
+        #    value: state.template_sign,
+        #    oninput: ->(e){ actions.set_template_sign(value: e.target.value) },
+        #  }
+        #  o "span", "　"
+        #  o "span", "parts"
+        #  o "textarea", {
+        #    name: "template_text",
+        #    cols: 20,
+        #    rows: 1,
+        #    oninput: ->(e){ actions.set_template_text(value: e.target.value) },
+        #  }, state.template_text
+        #end
 
         o "p" do
           o "textarea", {
