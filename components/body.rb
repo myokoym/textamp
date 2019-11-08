@@ -10,12 +10,7 @@ class Textamp < Ovto::App
             name: "volume",
             onchange: ->(e){ actions.set_volume(value: e.target.value) },
           } do
-            if max > 100
-              diff = 10 ** (state.increment_digit - 2)
-            else
-              diff = 1
-            end
-            0.step(10 ** state.increment_digit, diff) do |i|
+            0.step(10 ** state.increment_digit) do |i|
               hash = {value: i}
               hash[:selected] = "selected" if i == state.volume
               o "option", hash, i
