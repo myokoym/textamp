@@ -66,7 +66,7 @@ class Textamp < Ovto::App
             name: "increment_digit",
             onchange: ->(e){ actions.set_increment_digit(value: e.target.value) },
           } do
-            1.upto(10).each do |i|
+            1.upto(4).each do |i|
               hash = {value: i}
               hash[:selected] = "selected" if i == state.increment_digit.to_i
               o "option", hash, i
