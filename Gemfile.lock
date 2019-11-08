@@ -1,0 +1,32 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.4.0)
+    hike (1.2.3)
+    ifchanged (1.0.1)
+    opal (0.11.4)
+      ast (>= 2.3.0)
+      hike (~> 1.2)
+      parser (= 2.3.3.1)
+      sourcemap (~> 0.1.0)
+    ovto (0.4.1)
+      opal (~> 0.11)
+      rack (~> 2.0)
+      thor (~> 0.20)
+    parser (2.3.3.1)
+      ast (~> 2.2)
+    rack (2.0.7)
+    rake (12.3.2)
+    sourcemap (0.1.1)
+    thor (0.20.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ifchanged
+  ovto
+  rake
+
+BUNDLED WITH
+   2.0.2
